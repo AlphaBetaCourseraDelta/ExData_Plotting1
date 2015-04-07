@@ -10,12 +10,12 @@ plot2 <- function() {
   allData$DT <- strptime(allData$DT,"%d/%m/%Y %H:%M:%S")
 
 ## Subset relevant data
-  myDates <- subset(allData, Date>="2007-02-01" & Date <= "2007-02-02")
+  relevantDates <- subset(allData, Date>="2007-02-01" & Date <= "2007-02-02")
 
 ## Plot data
   png("plot2.png", width = 480, height = 480,)
-  plot(myDates$DT,
-       myDates$Global_active_power,
+  plot(relevantDates$DT,
+       relevantDates$Global_active_power,
        type="l",
        main="",
        xlab="",

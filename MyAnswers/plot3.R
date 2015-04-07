@@ -9,18 +9,18 @@ plot3 <- function() {
   allData$Date <- as.Date(allData$Date,"%d/%m/%Y")
   allData$DT <- strptime(allData$DT,"%d/%m/%Y %H:%M:%S")
 ## Subset relevant data
-  myDates <- subset(allData, Date>="2007-02-01" & Date <= "2007-02-02")
+  relevantDates <- subset(allData, Date>="2007-02-01" & Date <= "2007-02-02")
 
 ## Plot data
   png("plot3.png", width = 480, height = 480,)
-    plot(myDates$DT,myDates$Sub_metering_1,
+    plot(relevantDates$DT,relevantDates$Sub_metering_1,
        main="",
        type="l",
        xlab="",
        ylab="Energy sub metering",
        col="Black")
-       lines(myDates$DT,myDates$Sub_metering_2,col="Red")
-       lines(myDates$DT,myDates$Sub_metering_3,col="Blue")
+       lines(relevantDates$DT,relevantDates$Sub_metering_2,col="Red")
+       lines(relevantDates$DT,relevantDates$Sub_metering_3,col="Blue")
        legend("topright","(x,y)",
               c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
               lty=c(1,1,1),
