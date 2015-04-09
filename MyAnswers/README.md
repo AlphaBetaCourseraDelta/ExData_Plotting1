@@ -1,3 +1,5 @@
+## Course Project 1
+
 Hi!
 This is my assignment for Course Project 1:
 
