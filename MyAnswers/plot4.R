@@ -7,6 +7,9 @@ plot4 <- function() {
   allData$DT <- strptime(allData$DT,"%d/%m/%Y %H:%M:%S")
   myDates <- subset(allData, Date>="2007-02-01" & Date <= "2007-02-02")
 
+## firstPlot, secondPlot, thirdPlot, and fourthPlot create functions to create the plot.
+## they do not actually plot anything.
+
 ## Plot 1 - Global Active Power v. Time
   firstPlot<-function(){
     plot(myDates$DT,
@@ -53,7 +56,10 @@ plot4 <- function() {
          xlab="datetime",
          ylab="Global_reactive_power")}
 
-## Send plots to a PNG file
+
+## This actually calls the functions created above, plots them,
+## and puts the whole thing into a png file.
+## I'm using the default transparent background
   png("plot4.png", width = 480, height = 480,)
     par(mfrow=c(2,2))
     firstPlot()
