@@ -1,6 +1,20 @@
 plot4 <- function() {
-## Get Data 
-  allData <- read.table("household_power_consumption.txt", sep=(";"), header = TRUE, na.strings="?")
+
+## Get the data.  While it was recommended that we not download the entire file,
+## it was not required that we do so.
+## I decided to download and read in the whole thing and subset it
+## later.
+  
+  temp <-tempfile()
+  download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip",temp,mode="wb")
+  theUnzippedFile <- unz(temp,"household_power_consumption.txt")
+  
+  allData <- read.table(theUnzippedFile,
+                        sep=(";"),
+                        header = TRUE,
+                        na.strings="?")
+  unlink(temp)
+  
 ## Update time/date format, subset correct dates  
   allData$DT <- paste(allData$Date, allData$Time, sep=" ")
   allData$Date <- as.Date(allData$Date,"%d/%m/%Y")
