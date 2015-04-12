@@ -1,5 +1,5 @@
 plot4 <- function() {
-## Get Data
+## Get Data 
   allData <- read.table("household_power_consumption.txt", sep=(";"), header = TRUE, na.strings="?")
 ## Update time/date format, subset correct dates  
   allData$DT <- paste(allData$Date, allData$Time, sep=" ")
@@ -13,8 +13,9 @@ plot4 <- function() {
          myDates$Global_active_power,
          type="l",
          main="",
+         lwd=0.5,
          xlab="",
-         ylab="Global Active Power (kilowatts)")}
+         ylab="Global Active Power")}
 
 ## Plot 2 - Voltage v Time
   secondPlot<-function(){
